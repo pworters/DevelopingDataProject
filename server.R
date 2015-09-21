@@ -1,4 +1,4 @@
-
+library(shiny)
 library(UsingR)
 data(babies)
 babies[babies==999] <- NA

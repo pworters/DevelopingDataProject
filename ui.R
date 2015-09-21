@@ -1,3 +1,4 @@
+library(shiny)
 shinyUI(pageWithSidebar(
         headerPanel("Guess some metrics about babies!"),
         sidebarPanel(
