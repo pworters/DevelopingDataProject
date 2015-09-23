@@ -18,8 +18,18 @@ shinyServer(
                         lines(c(figLims[1,1], figLims[2,1]), c(hLine, hLine), col="blue", lwd=5)
                         
                         # Calculate errors
-                        output$gestationError <- renderPrint({mean((meanGestation-input$gestation)^2)})
-                        output$weightError <- renderPrint({mean((meanWt-input$weight)^2)})
+                        gestationMse <- mean((meanGestation-input$gestation)^2)
+                        output$gestationError <- renderPrint({gestationMse})
+                        weightMse <- mean((meanWt-input$weight)^2)
+                        output$weightError <- renderPrint({weightMse})
+                        
+                        flag <- ((gestationMse + weightMse) < 1.0)
+                        
+                        if (flag) {
+                                output$status <- renderPrint({'SUCCESS'})
+                        } else {
+                                output$status <- renderPrint({""})
+                        }
                 })
         }
 )
