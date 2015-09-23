@@ -28,7 +28,7 @@ shinyServer(
                         if (flag) {
                                 output$status <- renderPrint({'SUCCESS'})
                         } else {
-                                output$status <- renderPrint({""})
+                                output$status <- renderPrint({"TRY AGAIN"})
                         }
                 })
         }
