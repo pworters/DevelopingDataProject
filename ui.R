@@ -2,7 +2,8 @@ library(shiny)
 shinyUI(pageWithSidebar(
         headerPanel("Guess some metrics about babies!"),
         sidebarPanel(
-                h3('Input your guesses'),
+                h3('Input your guesses below'),
+                ('When your two guesses are close enough, you will see a SUCCESS status below the plot'),
                 sliderInput('weight', 'Guess at the mean birth weight', value=60, min=60, max=180, step=2,),
                 h4('Your birth weight MSE is'),
                 verbatimTextOutput("weightError"),
